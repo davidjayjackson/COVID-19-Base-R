@@ -1,0 +1,51 @@
+---
+title: "COVID-19 Analysis with Base R"
+author: "David J Jackson"
+date: "7/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Import NY Times COVID-19 Data
+
+```{r}
+rm(list=ls())
+US <-read.csv("./us.csv ")
+str(US)
+
+US$date <- as.Date(US$date)
+summary(US)
+```
+
+## Plot the Cumulative Daily Totals: Cases and Deaths
+
+```{r}
+attach(US)
+plot(date,cases,type ="l",main="NY Times Accumlative Total Cases")
+```
+```{r}
+plot(date,deaths,type ="l",main="NY Times Accumlative Total Deaths")
+```
+
+## Import and Plot Cumlative Totals for Ohio
+
+```{r}
+States <- read.csv("./us-states.csv")
+States$date <- as.Date(States$date)
+head(States)
+```
+```{r}
+
+BUCKEYE <- subset(States, state == "Ohio")
+head(BUCKEYE)
+
+plot(BUCKEYE$date,BUCKEYE$cases,type="h",main="Ohio Cumulative Cases",
+     xlab="Jan. 21, 2020 - July 12, 2020",ylab="Total Cases")
+
+plot(BUCKEYE$date,BUCKEYE$deaths,type="h",main="Ohio Cumulative Deaths",
+     xlab="Jan. 21, 2020 - July 12, 2020",ylab="Total Deaths")
+```
+
