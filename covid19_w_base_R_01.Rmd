@@ -49,3 +49,7 @@ plot(BUCKEYE$date,BUCKEYE$deaths,type="h",main="Ohio Cumulative Deaths",
      xlab="Jan. 21, 2020 - July 12, 2020",ylab="Total Deaths")
 ```
 
+## Calulate and Plot Daily Totals for Cases and Deaths
+
+
+
