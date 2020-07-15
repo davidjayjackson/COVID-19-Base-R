@@ -53,3 +53,4 @@ plot(BUCKEYE$date,BUCKEYE$deaths,type="h",main="Ohio Cumulative Deaths",
 
 
 
+
